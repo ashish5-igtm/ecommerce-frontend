@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import API from "../services/api";
 
@@ -14,7 +14,7 @@ function UpdateProduct() {
   });
 
 
-  const loadProduct = () => {
+  const loadProduct = useCallback(() => {
     API.get(`/products/${id}`)
       .then((res) => {
         setProduct(res.data);
@@ -22,7 +22,7 @@ function UpdateProduct() {
       .catch((err) => {
         console.error("Error loading product:", err);
       });
-  };
+  }, [id]);
   useEffect(() => {
     loadProduct();
   }, []);

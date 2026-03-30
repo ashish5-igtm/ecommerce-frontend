@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import API from "../services/api";
 
 function CustomerDashboard() {
@@ -22,7 +21,7 @@ function CustomerDashboard() {
     navigate("/login");
   };
 
-  const buyProduct = (id) => {
+  const buyProduct = () => {
     alert("Buy feature will be implemented next");
   };
   useEffect(() => {
